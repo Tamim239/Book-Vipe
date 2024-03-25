@@ -1,0 +1,81 @@
+[
+    {
+      "bookId": 1,
+      "bookName": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "image": "https://example.com/the-hobbit.jpg",
+      "review": "An adventurous tale of a hobbit's quest to reclaim a treasure guarded by a dragon.",
+      "totalPages": 310,
+      "rating": 4.7,
+      "category": "Fantasy",
+      "tags": ["adventure", "fantasy", "dragon"],
+      "publisher": "Allen & Unwin",
+      "yearOfPublishing": 1937
+    },
+    {
+      "bookId": 2,
+      "bookName": "The Alchemist",
+      "author": "Paulo Coelho",
+      "image": "https://example.com/the-alchemist.jpg",
+      "review": "A philosophical novel about a young shepherd's journey to fulfill his personal legend.",
+      "totalPages": 197,
+      "rating": 4.5,
+      "category": "Fiction",
+      "tags": ["philosophical", "journey", "personal legend"],
+      "publisher": "HarperCollins",
+      "yearOfPublishing": 1988
+    },
+    {
+      "bookId": 3,
+      "bookName": "The Da Vinci Code",
+      "author": "Dan Brown",
+      "image": "https://example.com/the-da-vinci-code.jpg",
+      "review": "A gripping thriller involving symbology, secret societies, and hidden messages.",
+      "totalPages": 454,
+      "rating": 4.2,
+      "category": "Mystery",
+      "tags": ["thriller", "symbology", "secret societies"],
+      "publisher": "Doubleday",
+      "yearOfPublishing": 2003
+    },
+    {
+      "bookId": 4,
+      "bookName": "The Hunger Games",
+      "author": "Suzanne Collins",
+      "image": "https://example.com/the-hunger-games.jpg",
+      "review": "A dystopian novel set in a future where teenagers fight to the death in a televised event.",
+      "totalPages": 374,
+      "rating": 4.4,
+      "category": "Young Adult",
+      "tags": ["dystopian", "survival", "television"],
+      "publisher": "Scholastic",
+      "yearOfPublishing": 2008
+    },
+    {
+      "bookId": 5,
+      "bookName": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "image": "https://example.com/the-catcher-in-the-rye.jpg",
+      "review": "An iconic novel exploring teenage angst and alienation.",
+      "totalPages": 224,
+      "rating": 4.4,
+      "category": "Fiction",
+      "tags": ["teenage angst", "alienation", "iconic"],
+      "publisher": "Little, Brown and Company",
+      "yearOfPublishing": 1951
+    },
+    {
+      "bookId": 6,
+      "bookName": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "image": "https://example.com/sapiens.jpg",
+      "review": "An engaging exploration of the history and development of Homo sapiens.",
+      "totalPages": 443,
+      "rating": 4.8,
+      "category": "Non-fiction",
+      "tags": ["history", "anthropology", "evolution"],
+      "publisher": "Harper",
+      "yearOfPublishing": 2011
+    }
+  ]
+  

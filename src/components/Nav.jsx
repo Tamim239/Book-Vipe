@@ -26,17 +26,17 @@ export const Nav = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
              <NavLink to="/" className={({ isActive }) =>
-              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : 'hover:border'
+              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : ''
             }>
             Home
           </NavLink>
           <NavLink to="/listedBooks" className={({ isActive }) =>
-              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : 'hover:border'
+              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : ''
             }>
             Listed Books
           </NavLink>
           <NavLink to="/pageRead" className={({ isActive }) =>
-              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : 'hover:border'
+              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : ''
             }>
             Pages to Read
           </NavLink>
@@ -53,24 +53,28 @@ export const Nav = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-base *:ml-2 *:rounded-md *:p-2">
           <NavLink to="/" className={({ isActive }) =>
-              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : 'hover:border'
+              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : ''
             }>
             Home
           </NavLink>
           <NavLink to="/listedBooks" className={({ isActive }) =>
-              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : 'hover:border'
+              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : ''
             }>
             Listed Books
           </NavLink>
           <NavLink to="/pageRead" className={({ isActive }) =>
-              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : 'hover:border'
+              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : ''
             }>
             Pages to Read
           </NavLink>
-          <NavLink to="/bookReview" className="px-2">
+          <NavLink to="/bookReview" className={({ isActive }) =>
+              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : ''
+            }>
             Book Reviews
           </NavLink>
-          <NavLink to="/bookChallenge" className="px-2">
+          <NavLink to="/bookChallenge" className={({ isActive }) =>
+              isActive ? 'border border-[#23BE0A] text-[#23BE0A] font-semibold' : ''
+            }>
             Reading Challenges
           </NavLink>
         </ul>

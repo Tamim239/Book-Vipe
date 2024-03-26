@@ -21,12 +21,12 @@ export const LisetedBooks = () => {
             tabIndex={0}
             className="dropdown-content z-[1] menu p-4 space-y-2 shadow bg-base-100 rounded-box w-52"
           >
-            <Link>Read</Link>
-            <Link>Wishlist</Link>
+            <Link to='read' onClick={()=> setTabIndex(0) }>Read</Link>
+            <Link to='wishlist' onClick={()=> setTabIndex(1)}>Wishlist</Link>
           </ul>
-        </div>
+        </div>  
       </div>
-      <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap dark:bg-gray-100 dark:text-gray-800">
+      <div className="flex items-center  overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap dark:bg-gray-100 dark:text-gray-800">
         <Link
         to="read"
         onClick={()=> setTabIndex(0)}

@@ -16,7 +16,7 @@ export const Read = () => {
     }
   
   }, [readList])
-  console.log(read)
+  // console.log(read)
   
   return (
      <div className="border">

@@ -15,13 +15,13 @@ export const ReadCard = ({ read }) => {
   } = read;
   return (
     <div className="flex items-center gap-3 my-10 border">
-      <div className="">
+      <div>
         <figure className="bg-[#1313130D] p-4 flex justify-center rounded-2xl">
           <img src={image} alt="book" className=" object-cover w-4/5  p-10" />
         </figure>
       </div>
-      <div className="flex-1">
-        <div>
+      <div className="flex-1 space-y-3">
+        <div className="space-y-2">
           <h1 className="font-bold text-2xl font-play">{bookName}</h1>
           <p className="font-medium">By : {author}</p>
         </div>
@@ -44,8 +44,8 @@ export const ReadCard = ({ read }) => {
         </div>
         </div>
         <div className="space-x-3 py-2 font-semibold flex items-center">
-          <p>Category : {category}</p>
-          <p>Rating : {rating}</p>
+          <p className="text-[#328EFF] bg-[#328EFF26] p-3 rounded-3xl">Category : {category}</p>
+          <p className="text-[#FFAC33] bg-[#FFAC3326] p-3 rounded-3xl">Rating : {rating}</p>
          <Link to={`/bookDetails/${bookId}`}> <button className="btn bg-[#23BE0A] text-white rounded-full">
             View Details
           </button></Link>

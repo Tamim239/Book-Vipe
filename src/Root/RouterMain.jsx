@@ -4,6 +4,7 @@ import { Home } from "../Pages/Home";
 import { LisetedBooks } from "../Pages/LisetedBooks";
 import { PageRead } from "../Pages/PageRead";
 import { ErrorPage } from "../components/ErrorPage";
+import { Books } from "../components/Books";
 
 export const router = createBrowserRouter([
     {

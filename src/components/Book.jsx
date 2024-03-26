@@ -1,27 +1,30 @@
 import PropTypes from "prop-types";
+import { CiStar } from "react-icons/ci";
 export const Book = ({ book }) => {
+  
   const { image, tags, bookName, author, category, rating } = book;
   // console.log(book)
   return (
-    <div className="p-4 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
-      <img
-        src={image}
-        alt=""
-        className="object-cover p-5 bg-[#F3F3F3] rounded-md h-72 dark:bg-gray-500"
-      />
-      <div className="mt-6 mb-2">
-        <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-600">
-          Quisque
-        </span>
+    <div className="card card-compact bg-base-100 border p-4">
+    <figure className="bg-[#F3F3F3] p-4 rounded-2xl"><img src={image} alt="Shoes"  /></figure>
+    <div className="mt-3 mb-2 space-y-2">
+         {
+          tags.map(tag =>  <button className=" btn ml-2 text-[#23BE0A] p-2 text-sm font-medium  underline" key={tag}> {tag}
+          </button> )
+         }
+       
         <h2 className="text-xl font-semibold tracking-wide">
-          Nam maximus purus
+         {bookName}
         </h2>
+        <p>By : {author}</p>
       </div>
-      <p className="dark:text-gray-800">
-        Mauris et lorem at elit tristique dignissim et ullamcorper elit. In sed
-        feugiat mi. Etiam ut lacinia dui.
-      </p>
-    </div>
+      <div>
+        <div className="flex justify-between font-medium">
+          <h1>{category}</h1>
+          <p className="flex items-center gap-2">{rating}  <CiStar size={20}/></p>
+        </div>
+      </div>
+  </div>
   );
 };
 

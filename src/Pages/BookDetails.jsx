@@ -1,11 +1,35 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import { saveStoredData } from "../Utilities/localStore";
+import { getStoredData, saveStoredData } from "../Utilities/localStore";
+import {
+  getStoredWishlist,
+  saveStoredWishlist,
+} from "../Utilities/wishlistLocal";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export const BookDetails = () => {
+  const [reader, setReader] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
+  const [match, setMatch] = useState(false);
   const books = useLoaderData();
-  const { id } = useParams();
+   const { id } = useParams();
   const idInt = parseInt(id);
   const book = books.find((book) => book.bookId === idInt);
+  
+  useEffect(()=>{
+    const readStorage = getStoredData()
+    const wishlistStorage = getStoredWishlist()
+     setReader(readStorage)
+     setWishlist(wishlistStorage)
+  }, [])
+
+  useEffect(()=> {
+     setMatch(reader.some(item => wishlist.includes(item)))
+
+  }, [reader, wishlist])
+  
+  
+  
   const {
     image,
     bookName,
@@ -19,10 +43,21 @@ export const BookDetails = () => {
     rating,
   } = book;
 
-const handleReadBtn = () => {
-  saveStoredData(idInt)
-}
-
+  const handleReadBtn = () => {
+    saveStoredData(idInt);
+  
+  };
+  const handleWishlistBtn = () => {
+    if(match){
+      console.log("match")
+     return toast.error("you have already read this book");
+    }
+  
+    saveStoredWishlist(idInt);
+      console.log("not match")
+   
+  };
+  console.log(reader, wishlist)
   return (
     <div className="flex items-center gap-3 my-10">
       <div className="w-1/2">
@@ -59,8 +94,13 @@ const handleReadBtn = () => {
           <p>Rating: {rating}</p>
         </div>
         <div className="space-x-3 font-semibold">
-          <button onClick={handleReadBtn} className="btn btn-outline">Read</button>
-          <button className="btn text-white bg-[#59C6D2] hover:bg-transparent hover:btn-info">
+          <button onClick={handleReadBtn} className="btn btn-outline">
+            Read
+          </button>
+          <button
+            onClick={handleWishlistBtn}
+            className="btn text-white bg-[#59C6D2] hover:bg-transparent hover:btn-info"
+          >
             Wishlist
           </button>
         </div>

@@ -5,22 +5,18 @@ const getStoredData = () => {
     if(storedBook){
         return JSON.parse(storedBook)
     }
-    return []
+    return [] // Return an empty array if no data is found
 }
 
-
-const saveStoredData = id => {
-  const storedBooks = getStoredData()
-  const isExist = storedBooks.find(book => book.id === id.id)
-  if(isExist){
-    return toast.error("You have already Read this book")
-  }
-  else {
-      storedBooks.push(id)
-      localStorage.setItem("book", JSON.stringify(storedBooks))
-      toast.success("Books Added To Read List")
-  }
+const saveStoredData = (id) => {
+    let storedBooks = getStoredData()
+    const isExist = storedBooks.includes(id)
+    if(isExist){
+        return toast.error("You have already Read this book")
+    }
+    storedBooks.push(id)
+    localStorage.setItem("book", JSON.stringify(storedBooks))
+    toast.success("Books Added To Read List")
 }
 
-
-export {getStoredData, saveStoredData}
+export { getStoredData, saveStoredData }

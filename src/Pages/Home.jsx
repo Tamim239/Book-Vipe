@@ -5,7 +5,7 @@ import { Books } from "../components/Books"
 
 export const Home = () => {
   const booksList = useLoaderData()
-  console.log(booksList)
+  // console.log(booksList)
   return (
     <div>
       <div className="my-12 bg-[#1313130D] rounded-3xl">

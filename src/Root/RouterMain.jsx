@@ -4,29 +4,45 @@ import { Home } from "../Pages/Home";
 import { LisetedBooks } from "../Pages/LisetedBooks";
 import { PageRead } from "../Pages/PageRead";
 import { ErrorPage } from "../components/ErrorPage";
-import { Books } from "../components/Books";
+import { BookDetails } from "../Pages/BookDetails";
+import { Read } from "../components/Read";
+import { Wishlist } from "../components/Wishlist";
 
 export const router = createBrowserRouter([
-    {
-        path:"/",
-        element: <MainLayout></MainLayout>,
-        errorElement: <ErrorPage></ErrorPage>,
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+        loader: () => fetch("books.json")
+      },
+      {
+        path: "/bookDetails/:id",
+        element: <BookDetails></BookDetails>,
+        loader: () => fetch(`books.json`)
+
+      },
+      {
+        path: "/listedBooks",
+        element: <LisetedBooks></LisetedBooks>,
         children:[
-            {
-          path:"/",
-          element: <Home></Home>,
-          loader: () => fetch('books.json')
-            },
           {
-            path: "/listedBooks",
-            element: <LisetedBooks></LisetedBooks>
+            path: "read",
+            element: <Read></Read>
           },
           {
-            path: "/pageRead",
-            element: <PageRead></PageRead>
+            path: "wishlist",
+            element: <Wishlist></Wishlist>
           }
-        ],
-    
-        
-    }
-])
+        ]
+      },
+      {
+        path: "/pageRead",
+        element: <PageRead></PageRead>,
+      },
+    ],
+  },
+]);

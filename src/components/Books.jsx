@@ -3,7 +3,7 @@ import { Book } from "./Book"
 import PropTypes from 'prop-types';
 export const Books = ({booksList}) => {
     
-    console.log(booksList)
+    // console.log(booksList)
   return (
     <div>
         <h1 className="text-center text-4xl font-bold font-play">Books</h1>
@@ -16,5 +16,5 @@ export const Books = ({booksList}) => {
   )
 }
 Books.propTypes ={
-    booksList:PropTypes.object
+    booksList:PropTypes.array
 }

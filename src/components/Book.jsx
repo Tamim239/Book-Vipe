@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 export const Book = ({ book }) => {
   const { image, tags, bookName, author, category, rating, bookId } = book;
   
- 
-  // console.log(bookId)
   return (
     <div className="card card-compact bg-base-100 border p-4">
     <Link to={`/bookDetails/${bookId}`}>

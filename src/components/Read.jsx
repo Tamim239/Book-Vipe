@@ -16,12 +16,11 @@ export const Read = () => {
     }
   
   }, [readList])
-  // console.log(read)
-  
+
   return (
      <div className="border">
       {
-        read.map(readlist => <ReadCard read={readlist} key={read.bookId}></ReadCard>)
+        read.map(readlist => <ReadCard read={readlist} key={readList.bookId}></ReadCard>)
       }
      </div>
   

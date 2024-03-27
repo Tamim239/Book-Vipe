@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 export const BookDetails = () => {
   const [reader, setReader] = useState([]);
   const [wishlist, setWishlist] = useState([]);
-  const [match, setMatch] = useState(false);
+  const [match, setMatch] = useState([]);
   const books = useLoaderData();
    const { id } = useParams();
   const idInt = parseInt(id);
@@ -19,16 +19,17 @@ export const BookDetails = () => {
   useEffect(()=>{
     const readStorage = getStoredData()
     const wishlistStorage = getStoredWishlist()
-     setReader(readStorage)
-     setWishlist(wishlistStorage)
-  }, [])
+    if(readStorage.length > 0){
+      const wishlistFilter = wishlistStorage.filter(read => console.log(read))
+      setMatch(wishlistFilter)
+    }
+    //  setReader(readStorage)
+    //  setWishlist(wishlistStorage)
+  },[])
 
-  useEffect(()=> {
-     setMatch(reader.some(item => wishlist.includes(item)))
-
-  }, [reader, wishlist])
   
-  
+   
+  // console.log(match)
   
   const {
     image,
@@ -48,13 +49,14 @@ export const BookDetails = () => {
   
   };
   const handleWishlistBtn = () => {
-    if(match){
-      console.log("match")
-     return toast.error("you have already read this book");
-    }
-  
-    saveStoredWishlist(idInt);
-      console.log("not match")
+      if(match){
+        console.log("ha ace")
+      }
+      else{
+        console.log("na nai")
+      }
+    // saveStoredWishlist(idInt);
+      
    
   };
   console.log(reader, wishlist)

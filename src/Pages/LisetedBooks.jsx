@@ -1,31 +1,24 @@
 import { Link, Outlet } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
+import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
+import '@szhsin/react-menu/dist/transitions/slide.css';
 export const LisetedBooks = () => {
   const [tabIndex, setTabIndex] = useState(0)
   return (
     <div>
-      <h1 className="text-center font-bold text-3xl bg-[#1313130D] p-5 rounded-xl">
+       <h1 className="text-center font-bold text-3xl bg-[#1313130D] p-5 rounded-xl">
         Books
       </h1>
-      <div className="flex justify-center">
-        <div className="dropdown dropdown-bottom">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn m-1 font-semibold bg-[#23BE0A] text-white"
-          >
-            Sort By <IoIosArrowDown />
-          </div>
-          <ul
-            tabIndex={0}
-            className="dropdown-content z-[1] menu p-4 space-y-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <Link to='read' onClick={()=> setTabIndex(0) }>Read</Link>
-            <Link to='wishlist' onClick={()=> setTabIndex(1)}>Wishlist</Link>
-          </ul>
-        </div>  
-      </div>
+
+     <div className="flex justify-center">
+     <Menu menuButton={<MenuButton className="flex items-center gap-2 bg-[#23BE0A] text-white btn m-1 font-semibold hover:bg-black"> Sort By<IoIosArrowDown /></MenuButton>} transition>
+      <MenuItem>Rating</MenuItem>
+     <Link to='read' onClick={()=> setTabIndex(0) }><MenuItem>Read</MenuItem></Link>
+     <Link to='wishlist' onClick={()=> setTabIndex(1) }><MenuItem>Wishlist</MenuItem></Link>
+     </Menu>
+     </div>
       <div className="flex items-center  overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap dark:bg-gray-100 dark:text-gray-800">
         <Link
         to="read"

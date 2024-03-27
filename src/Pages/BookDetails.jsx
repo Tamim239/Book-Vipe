@@ -1,29 +1,13 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { saveStoredData } from "../Utilities/localStore";
-import {
-  saveStoredWishlist,
-} from "../Utilities/wishlistLocal";
-import { useEffect, useState } from "react";
+import { saveStoredWishlist } from "../Utilities/wishlistLocal";
 import { toast } from "react-toastify";
 
 export const BookDetails = () => {
   const books = useLoaderData();
-   const { id } = useParams();
+  const { id } = useParams();
   const idInt = parseInt(id);
   const book = books.find((book) => book.bookId === idInt);
-  
-  useEffect(()=>{
-   const bookData = localStorage.getItem('book')
-   if(bookData){
-    const bookValue = JSON.parse(bookData);
-    const wishlistData = localStorage.getItem('wishlist');
-    const wishlist = wishlistData ? JSON.parse(wishlistData) : [];
-    if(!wishlist.includes(bookValue)){
-        wishlist.push(bookValue);
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-    }
-   }
-  },[])
 
   const {
     image,
@@ -40,29 +24,28 @@ export const BookDetails = () => {
 
   const handleReadBtn = () => {
     saveStoredData(idInt);
-  
   };
   const handleWishlistBtn = () => {
-    const bookData = localStorage.getItem('book');
-if(bookData){
-  const bookValue = JSON.parse(bookData);
-  const wishlistData = localStorage.getItem('wishlist');
-  // const wishlist = wishlistData ? JSON.parse(wishlistData) : [];
-  const wishlist = wishlistData ? '' : [];
-  if (!wishlist.includes(bookValue)){
-        wishlist.push(bookValue);
-        // localStorage.setItem('wishlist', JSON.stringify(wishlist));
-          saveStoredWishlist(idInt); 
-        console.log('Added to wishlist:', bookValue);
-  }  else {
-    toast.error("You have already Read this book")
-  }
-  
-}
-else {
-  // console.log("your bookdata false")
-    saveStoredWishlist(idInt); 
-  }
+    const bookData = localStorage.getItem("book");
+    if (bookData) {
+      const bookValue = JSON.parse(bookData);
+      const wishlistData = localStorage.getItem("wishlist");
+      const wishlist =  JSON.parse(wishlistData)
+      if (bookValue.includes(wishlist)) {
+         saveStoredWishlist(idInt);
+        //  wishlist.push(bookValue);
+        //  localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      } 
+      else {
+        if(wishlist){
+         return saveStoredWishlist(idInt)
+        // return toast.error("You have already wishlist this book")
+        }
+       return toast.error("You have already Read this book");
+ 
+      }
+    }
+    saveStoredWishlist(idInt);
   };
 
   return (

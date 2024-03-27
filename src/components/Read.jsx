@@ -20,7 +20,7 @@ export const Read = () => {
   return (
      <div className="border">
       {
-        read.map(readlist => <ReadCard read={readlist} key={readList.bookId}></ReadCard>)
+        read.map(readlist => <ReadCard read={readlist} key={readlist.bookId}></ReadCard>)
       }
      </div>
   

@@ -23,12 +23,12 @@ export const PageRead = () => {
   };
   return (
     <div className="">
-       {/* <ResponsiveContainer width="100vh" height="100vh">
+       <ResponsiveContainer width="100%">
 
           
-    </ResponsiveContainer> */}
+    </ResponsiveContainer>
       <BarChart
-        width={1200}
+        width={window.innerWidth > 600 ? 1200 : window.innerWidth - 20}
         height={500}
         data={read}
         margin={{

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { getStoredData } from "../Utilities/localStore";
 import { useLoaderData } from "react-router-dom";
 export const PageRead = () => {
@@ -22,7 +22,11 @@ export const PageRead = () => {
     return <path d={path} fill={fill} />;
   };
   return (
-    <div className="flex justify-center">
+    <div className="">
+       {/* <ResponsiveContainer width="100vh" height="100vh">
+
+          
+    </ResponsiveContainer> */}
       <BarChart
         width={1200}
         height={500}
@@ -34,6 +38,7 @@ export const PageRead = () => {
           bottom: 5,
         }}
       >
+       
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="bookName" fontSize={15}></XAxis>
         <YAxis></YAxis>

@@ -1,11 +1,37 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLoaderData } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/slide.css';
+import { getStoredData } from "../Utilities/localStore";
 export const LisetedBooks = () => {
-  const [tabIndex, setTabIndex] = useState(0)
+  const [tabIndex, setTabIndex] = useState(0);
+  const [read, setRead] = useState([])
+  const [sortedBooks, setSortedBooks] = useState([]);
+  const readList = useLoaderData()
+  useEffect(()=>{
+    const readStorage = getStoredData()
+    if(readList.length > 0){
+      const readBook = readList.filter(read => readStorage.includes(read.bookId))
+      setRead(readBook)
+    }
+  
+  }, [readList])
+
+console.log(read)
+const sortBooks = (col) => {
+  const sorted = [...read].sort((x, y) => {
+    if (x[col] > y[col]) return -1; // Sort by rating in descending order
+    if (x[col] < y[col]) return 1;
+    x[col] - y[col]; // If ratings are equal, sort by totalPages in ascending order
+  });
+  return setRead(sorted)
+};
+
+
+
+
   return (
     <div>
        <h1 className="text-center font-bold text-3xl bg-[#1313130D] p-5 rounded-xl">
@@ -14,9 +40,9 @@ export const LisetedBooks = () => {
 
      <div className="flex justify-center">
      <Menu menuButton={<MenuButton className="flex items-center gap-2 bg-[#23BE0A] text-white btn m-1 font-semibold hover:bg-black"> Sort By<IoIosArrowDown /></MenuButton>} transition>
-      <MenuItem>Rating</MenuItem>
-     <Link to='read' onClick={()=> setTabIndex(0) }><MenuItem>Read</MenuItem></Link>
-     <Link to='wishlist' onClick={()=> setTabIndex(1) }><MenuItem>Wishlist</MenuItem></Link>
+      <MenuItem onClick={()=> sortBooks("rating")}>Rating</MenuItem>
+     <Link to='read' onClick={()=> setTabIndex(0) }><MenuItem>Number of Pages</MenuItem></Link>
+     <Link to='wishlist' onClick={()=> setTabIndex(1) }><MenuItem>Published year</MenuItem></Link>
      </Menu>
      </div>
       <div className="flex items-center  overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap dark:bg-gray-100 dark:text-gray-800">

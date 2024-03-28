@@ -6,8 +6,8 @@ export const Books = ({booksList}) => {
     // console.log(booksList)
   return (
     <div>
-        <h1 className="text-center text-4xl font-bold font-play">Books</h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
+        <h1 className="text-center text-2xl md:text-4xl font-bold font-play">Books</h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-5 md:my-10">
             {
                 booksList.map(book => <Book book={book} key={book.bookId}></Book>)
             }

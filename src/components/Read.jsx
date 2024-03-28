@@ -15,7 +15,8 @@ export const Read = () => {
       setRead(readBook)
     }
   
-  }, [readList])
+  }, [readList]);
+
 
   return (
      <div className="border">

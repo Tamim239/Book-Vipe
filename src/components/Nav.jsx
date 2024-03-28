@@ -48,7 +48,7 @@ export const Nav = () => {
           </NavLink>
           </ul>
         </div>
-        <Link className=" font-bold text-2xl">Book Vibe</Link>
+        <Link className=" font-bold md:text-2xl">Book Vibe</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-base *:ml-2 *:rounded-md *:p-2">
@@ -79,7 +79,7 @@ export const Nav = () => {
           </NavLink>
         </ul>
       </div>
-      <div className="navbar-end space-x-3 text-white">
+      <div className="navbar-end space-x-3 text-white ">
         <Link>
           <button className="btn text-white bg-[#23BE0A] hover:bg-transparent hover:btn-success">
             Sign In

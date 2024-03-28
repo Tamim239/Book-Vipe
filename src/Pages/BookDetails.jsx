@@ -32,13 +32,13 @@ export const BookDetails = () => {
   }
 
   return (
-    <div className="flex items-center gap-3 my-10">
-      <div className="w-1/2">
+    <div className="flex flex-col md:flex-row items-center gap-3 my-10">
+      <div className="md:w-1/2 w-full max-sm:px-2">
         <figure className="bg-[#1313130D] w-full p-4 flex justify-center rounded-2xl">
-          <img src={image} alt="book" className=" object-cover w-4/5  p-10" />
+          <img src={image} alt="book" className=" object-cover md:w-4/5 p-5 md:p-10" />
         </figure>
       </div>
-      <div className="w-1/2 pl-5">
+      <div className="md:w-1/2 pl-5">
         <div className="space-y-2 border-b-2 py-2">
           <h1 className="font-bold text-4xl font-play">{bookName}</h1>
           <p className="font-medium">By : {author}</p>

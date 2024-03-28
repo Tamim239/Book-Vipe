@@ -1,7 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { saveStoredData } from "../Utilities/localStore";
-import { saveStoredWishlist } from "../Utilities/wishlistLocal";
-import { toast } from "react-toastify";
+import {  saveStoredWishlist } from "../Utilities/wishlistLocal";
 
 export const BookDetails = () => {
   const books = useLoaderData();
@@ -22,31 +21,15 @@ export const BookDetails = () => {
     rating,
   } = book;
 
+
+
   const handleReadBtn = () => {
     saveStoredData(idInt);
   };
+  
   const handleWishlistBtn = () => {
-    const bookData = localStorage.getItem("book");
-    if (bookData) {
-      const bookValue = JSON.parse(bookData);
-      const wishlistData = localStorage.getItem("wishlist");
-      const wishlist =  JSON.parse(wishlistData)
-      if (bookValue.includes(wishlist)) {
-         saveStoredWishlist(idInt);
-        //  wishlist.push(bookValue);
-        //  localStorage.setItem('wishlist', JSON.stringify(wishlist));
-      } 
-      else {
-        if(wishlist){
-         return saveStoredWishlist(idInt)
-        // return toast.error("You have already wishlist this book")
-        }
-       return toast.error("You have already Read this book");
- 
-      }
-    }
     saveStoredWishlist(idInt);
-  };
+  }
 
   return (
     <div className="flex items-center gap-3 my-10">

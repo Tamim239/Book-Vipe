@@ -1,12 +1,15 @@
 
-/**   
+/**    
 * website name: Book Vipe 
 * live site url:
-* featured website
-* 1. if you look at the Home section, you will see a banner with button. and top navbar its usable
-* 2. if you click on the banner button, you will get the listed books.
-* 3. there (home section) when you scroll down you see a Books container there are     many books items,. whenever you click on book card, you will see this book details,
-4. there are many information in books about. you will see the 2 button read and wishlist, when you click read then your books will store ListedBooks section there many features.
-* 5. you will see the dropdown menu. when you click the dropdown menu you will see list of categories. there 3 categories- read, wishlist and rating. when you click read option you will see read items books. and same way click wishlist option you will see wishlist books.
-* 6. your read books will see a chart type when you click pageread option you will see a chart/rechart your read books.
+* 
+* 
+* featured website : 
+* 1. If you open the link, you will first see a navbar, scroll a banner and you will see a book container.  Where there is a list of books.  
+* 2. There is a button on the banner and clicking on it will open the listed book.  If you click on home again, you will come to the home page.  If you click on the book in the book container, the details of that book will be shown on the dynamic page.  
+* 3. There are 2 buttons below in the book details, there is a read button when you click on the read button and there is an option to list the read in the listed book.  
+* 4. Listed books page has sorting option.  Another option on the navbar is called Page Read.  
+* 5. A reading chart has been created for the books listed on that page
+* 
+* 
 */

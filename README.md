@@ -1,7 +1,7 @@
 
 /**    
 * website name: Book Vipe 
-* live site url:
+* live site url: https://book-vipe.netlify.app/
 * 
 * 
 * featured website : 
